@@ -1,0 +1,14 @@
+{% extends "BookSite/base.html "%}
+{% block content %}
+<div class="formupload">
+<h3>Upload </h3>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="document" id="id1">
+    <button type="submit" id="id2">Upload File</button>
+</form>
+{% if url %}
+    <p>Uploaded File: <a href="{{ url }}">{{ url }}</a></p>
+{% endif %}
+</div>
+{% endblock %}

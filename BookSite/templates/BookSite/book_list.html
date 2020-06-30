@@ -1,0 +1,45 @@
+{% extends "BookSite/base.html"%}
+
+{% block title%} Home Page {% endblock %}
+
+{% block content %}
+{% block header %}
+<h2>Books</h2>
+<p>
+<a href="{% url 'upload_book' %}" class="btn btn-primary btn-sm">Upload Book</a>
+</p>
+{% endblock %}
+<table>
+    <thead>
+        <tr>
+            <th>Cover</th>
+             <th>Title</th>
+             <th>Author</th>
+             <th>Dowload</th>
+             <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+            <tr>
+                {% if book.cover %}
+                  <td><img src="{{ book.cover.url }}" id="img" alt="{{ book.title }}"></td>
+                {% else %}
+                    <td> <span>No Cover</span></td>
+                  {% endif %}
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                    <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank"> Download PDF</a>
+                </td>
+                <td>
+                    <form method="POST" action="{% url 'delete_book' book.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

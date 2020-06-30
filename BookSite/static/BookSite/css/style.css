@@ -1,0 +1,46 @@
+body
+{
+    background-color: blueviolet;
+}
+#id1
+{
+    display: inline;
+}
+#id2
+{
+    display: inline;
+}
+.formupload
+{
+    margin-left: 150px;
+    background-color: khaki;
+}
+table
+{
+    padding: 5px;
+}
+th
+{
+    font-size: 30px;
+    font-style: italic;
+    padding: 25px;
+    border-top: 2px solid black;
+   border-bottom: 2px solid black;
+}
+td
+{
+    font-style: italic;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+tr
+{
+    border-bottom: 1px solid black;
+}
+#img
+{
+    width: 100px;
+    height: 150px;
+}
